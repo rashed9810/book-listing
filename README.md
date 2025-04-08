@@ -63,13 +63,13 @@ book-listing-app/
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/book-listing-app.git
+   git clone https://github.com/rashed9810/book-listing.git
    ```
 
 2. Open the project folder:
 
    ```
-   cd book-listing-app
+   cd book-listing
    ```
 
 3. Open `index.html` in your browser or use a local server:
