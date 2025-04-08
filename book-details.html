@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Details - Gutendex Books</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <h1>BookFinder</h1>
+            </a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="fonts.html">Fonts</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="back-link">
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Books</a>
+      </div>
+
+      <section id="book-details" class="book-details-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Loading book details...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 BookFinder. All rights reserved.</p>
+        <p>
+          Data provided by
+          <a href="https://gutendex.com/" target="_blank">Gutendex API</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/book-details.js"></script>
+  </body>
+</html>

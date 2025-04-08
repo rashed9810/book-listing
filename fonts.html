@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Management - BookFinder</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <h1>BookFinder</h1>
+            </a>
+          </div>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="fonts.html" class="active">Fonts</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1 class="page-title">Font Management</h1>
+
+      <div class="font-management">
+        <div class="font-tabs">
+          <button class="tab-btn active" data-tab="upload">Upload Font</button>
+          <button class="tab-btn" data-tab="list">Font List</button>
+          <button class="tab-btn" data-tab="groups">Font Groups</button>
+        </div>
+
+        <div class="tab-content">
+          <!-- Font Upload Section -->
+          <div class="tab-pane active" id="upload-tab">
+            <div class="font-upload-container">
+              <h2>Upload New Font</h2>
+              <form id="font-upload-form" class="font-form">
+                <div class="form-group">
+                  <label for="font-name">Font Name</label>
+                  <input
+                    type="text"
+                    id="font-name"
+                    name="fontName"
+                    required
+                    placeholder="Enter font name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="font-file">Font File</label>
+                  <div class="file-input-wrapper">
+                    <input
+                      type="file"
+                      id="font-file"
+                      name="fontFile"
+                      accept=".ttf,.otf,.woff,.woff2"
+                      required
+                    />
+                    <div class="file-input-placeholder">
+                      <i class="fas fa-upload"></i>
+                      <span
+                        >Choose a font file (.ttf, .otf, .woff, .woff2)</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="font-style">Font Style</label>
+                  <select id="font-style" name="fontStyle">
+                    <option value="normal">Normal</option>
+                    <option value="italic">Italic</option>
+                    <option value="bold">Bold</option>
+                    <option value="bold-italic">Bold Italic</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="font-category">Category</label>
+                  <select id="font-category" name="fontCategory">
+                    <option value="serif">Serif</option>
+                    <option value="sans-serif">Sans-serif</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="display">Display</option>
+                    <option value="handwriting">Handwriting</option>
+                  </select>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn">Upload Font</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="font-preview-container">
+              <h2>Font Preview</h2>
+              <div id="font-preview" class="font-preview">
+                <p class="preview-text">
+                  The quick brown fox jumps over the lazy dog.
+                </p>
+                <p class="preview-text">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                <p class="preview-text">abcdefghijklmnopqrstuvwxyz</p>
+                <p class="preview-text">0123456789</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Font List Section -->
+          <div class="tab-pane" id="list-tab">
+            <h2>Your Fonts</h2>
+            <div class="font-filters">
+              <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                  type="text"
+                  id="font-search"
+                  placeholder="Search fonts..."
+                />
+              </div>
+              <div class="filter-wrapper">
+                <select id="category-filter">
+                  <option value="">All Categories</option>
+                  <option value="serif">Serif</option>
+                  <option value="sans-serif">Sans-serif</option>
+                  <option value="monospace">Monospace</option>
+                  <option value="display">Display</option>
+                  <option value="handwriting">Handwriting</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="fonts-container" class="fonts-container">
+              <!-- Fonts will be loaded here -->
+              <div class="empty-state" id="empty-fonts">
+                <i class="fas fa-font empty-icon"></i>
+                <h3>No fonts found</h3>
+                <p>Upload your first font to get started.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Font Groups Section -->
+          <div class="tab-pane" id="groups-tab">
+            <div class="groups-container">
+              <div class="create-group-container">
+                <h2>Create Font Group</h2>
+                <form id="create-group-form" class="font-form">
+                  <div class="form-group">
+                    <label for="group-name">Group Name</label>
+                    <input
+                      type="text"
+                      id="group-name"
+                      name="groupName"
+                      required
+                      placeholder="Enter group name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="group-description"
+                      >Description (optional)</label
+                    >
+                    <textarea
+                      id="group-description"
+                      name="groupDescription"
+                      placeholder="Enter group description"
+                      style = "resize: none;"
+                    ></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label>Select Fonts</label>
+                    <div id="font-selection" class="font-selection">
+                      <!-- Font checkboxes will be loaded here -->
+                      <div class="empty-state" id="empty-font-selection">
+                        <p>No fonts available. Upload fonts first.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <button type="submit" class="btn">Create Group</button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="font-groups-list">
+                <h2>Your Font Groups</h2>
+                <div id="groups-container" class="groups-container">
+                  <!-- Font groups will be loaded here -->
+                  <div class="empty-state" id="empty-groups">
+                    <i class="fas fa-object-group empty-icon"></i>
+                    <h3>No font groups found</h3>
+                    <p>Create your first font group to get started.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 BookFinder. All rights reserved.</p>
+        <p>
+          Data provided by
+          <a href="https://gutendex.com/" target="_blank">Gutendex API</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/fonts.js"></script>
+  </body>
+</html>
